@@ -1,0 +1,214 @@
+/* src/App.css */
+body {
+  background-color: #121212;
+  color: #e0e0e0;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #1e1e1e;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 20px;
+}
+
+.movie-card {
+  background-color: #303030;
+  border-radius: 8px;
+  padding: 30px;
+  text-align: left;
+  width: 90%;
+  max-width: 600px;
+  margin-top: 30px;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  position: relative;
+}
+
+.movie-card h2 {
+  margin-bottom: 15px;
+  color: #bb86fc;
+}
+
+.movie-card p {
+  line-height: 1.6;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 25px;
+}
+
+.thumbs-up,
+.thumbs-down {
+  padding: 12px 25px;
+  border: 1px solid #555;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  background-color: #222;
+  color: #e0e0e0;
+  transition: background-color 0.2s ease;
+}
+
+.thumbs-up:hover,
+.thumbs-down:hover {
+  background-color: #333;
+}
+
+.slide-left {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.slide-right {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.thumbs-up-list {
+  margin-top: 30px;
+  text-align: left;
+  width: 90%;
+  max-width: 600px;
+}
+
+.thumbs-up-list h2 {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  color: #bb86fc;
+}
+
+.thumbs-up-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.thumbs-up-list li {
+  padding: 10px 15px;
+  border-bottom: 1px solid #444;
+}
+
+.thumbs-up-list li:last-child {
+  border-bottom: none;
+}
+
+.movieCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.movieCard img {
+  max-width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.get-recommendations {
+  background-color: green;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.recommendations-list {
+  margin-top: 20px;
+  text-align: left;
+  width: 85%;
+}
+
+.recommendations-list h2 {
+  font-size: 1.5em;
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjust minmax if needed */
+  gap: 8px;
+  margin-top: 20px;
+  padding: 0 10px;
+}
+
+
+.movie-grid-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+}
+
+.movie-grid-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  max-height: 180px;
+}
+
+.movie-grid-item p {
+  margin: 0;
+  font-size: 0.8em;
+}
+
+.movie-card img {
+  max-width: 100%;
+  max-height: 400px; 
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.blurred {
+  filter: blur(5px);
+  transition: filter 0.3s ease;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #1e1e1e;
+  padding: 2em;
+  border-radius: 12px;
+  max-width: 600px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+/* Three-dots button */
+.more-btn {
+  margin-top: 5px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
