@@ -33,18 +33,15 @@ def login():
         if not token:
             return jsonify({'error': 'No token provided'}), 400
 
-        # Specify the CLIENT_ID of your app
         idinfo = id_token.verify_oauth2_token(
             token,
             google_requests.Request(),
             CLIENT_ID
         )
 
-        # Check if token is expired
         if idinfo['exp'] < time.time():
             return jsonify({'error': 'Token expired'}), 401
 
-        # Get user info
         user_id = idinfo['sub']
         given_name = idinfo.get('given_name', '')
         
@@ -99,10 +96,8 @@ def watchlist():
             conn = sqlite3.connect('movies.db')
             c = conn.cursor()
             
-            # Clear existing watchlist for user
             c.execute('DELETE FROM watchlists WHERE user_id = ?', (user_id,))
             
-            # Insert new watchlist items
             for movie in watchlist:
                 try:
                     c.execute(
@@ -110,7 +105,6 @@ def watchlist():
                         (user_id, movie['id'], movie['title'], movie['overview'])
                     )
                 except sqlite3.IntegrityError:
-                    # Skip duplicates
                     continue
             
             conn.commit()
@@ -126,7 +120,6 @@ def watchlist():
                 conn.close()
 
 
-# Load and prepare movie data
 dataframe2 = pd.read_csv('dataframe2.csv')
 q_movies = pd.read_csv('qmovies.csv')
 sim_matrix = pd.read_csv('sim_matrix.csv')
